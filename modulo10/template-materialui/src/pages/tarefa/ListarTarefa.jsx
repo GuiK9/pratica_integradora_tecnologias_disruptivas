@@ -122,10 +122,10 @@ const ListarTarefa = () => {
                       <TableCell align="right">{row.statusTarefa}</TableCell>
                       <TableCell align="right">{row.recursoTarefa}</TableCell>
                       <TableCell align="center">
-                        <Button variant="contained" color="success" onClick={() => handleEditar(row.idTarefa)}><EditIcon fontSize="small" /></Button>            
+                      <Button variant="contained" color="success" style={styles.editButton} onClick={() => handleEditar(row.idTarefa)}><EditIcon fontSize="small" /></Button>
                       </TableCell>
                       <TableCell align="center">
-                        <Button variant="contained" color="error" onClick={() => handleDeletar(row.idTarefa)}><DeleteIcon fontSize="small" /></Button>            
+                        <Button variant="contained" style={styles.deleteButton} color="error" onClick={() => handleDeletar(row.idTarefa)}><DeleteIcon fontSize="small" /></Button>            
                       </TableCell>
                     </TableRow>
                 ))}
@@ -165,5 +165,33 @@ const ListarTarefa = () => {
   </>    
  );
 };
+
+const styles = {
+  deleteButton: {
+    backgroundColor: '#f44336',
+    color: 'white',
+    borderRadius: '8px',
+    padding: '5px 10px',
+    textTransform: 'none',
+    transition: 'background-color 0.3s ease, transform 0.3s ease',
+    '&:hover': {
+      backgroundColor: '#d32f2f',
+      transform: 'scale(1.1)',
+    },
+  },
+  editButton: {
+    backgroundColor: '#4caf50',
+    color: 'white',
+    borderRadius: '8px',
+    padding: '5px 10px',
+    textTransform: 'none',
+    transition: 'background-color 0.3s ease',
+    '&:hover': {
+      backgroundColor: '#45a049',
+    },
+  },
+};
+
+
  
 export default ListarTarefa;
